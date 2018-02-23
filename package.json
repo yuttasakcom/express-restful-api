@@ -1,0 +1,36 @@
+{
+  "name": "nodejs-restful-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:yuttasakcom/nodejs-restful-api.git",
+  "author": "YoProgrammer <yuttasakcom@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev:build": "webpack --watch",
+    "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
+    "dev": "npm-run-all --parallel dev:*",
+    "build": "webpack",
+    "test": "jest --forceExit",
+    "cover": "jest --coverage --forceExit",
+    "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls",
+    "start": "npm run build && node build/bundle.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "coveralls": "^3.0.0",
+    "jest": "^22.4.2",
+    "nodemon": "^1.15.1",
+    "npm-run-all": "^4.1.2",
+    "supertest": "^3.0.0",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-node-externals": "^1.6.0"
+  }
+}
