@@ -24,8 +24,6 @@ $ yarn test # for test
 $ yarn start # for production
 $ yarn cover # for create code coverage
 $ yarn coveralls # build coverage on coveralls.io
-
-$ yarn build # for build
 ```
 
 ## Server
