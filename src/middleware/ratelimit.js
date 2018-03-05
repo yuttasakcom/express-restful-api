@@ -6,4 +6,4 @@ const options = {
   delayMs: 0
 }
 
-export default () => new RateLimit(options)
+export default new RateLimit(options)
