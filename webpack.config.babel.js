@@ -17,7 +17,7 @@ const config = {
     extensions: ['.js']
   },
   target: 'node',
-  devtool: '#source-map',
+  devtool: 'inline-cheap-source-map',
   module: {
     rules: [
       {

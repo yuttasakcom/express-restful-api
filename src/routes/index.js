@@ -1,9 +1,5 @@
-import { Router } from 'express'
-
-import users from './users'
-
-const router = Router()
-
-router.use(users)
-
-export default router
+import api from './api'
+  
+export default app => {
+  app.use('/api', api)
+}
