@@ -14,10 +14,10 @@ app.disable('x-powered-by')
 app.set('host', process.env.HOST || '127.0.0.1')
 app.set('port', process.env.PORT || '3000')
 
-app.use(ratelimit)
 app.use(helmet())
-app.use(morgan('common'))
+app.use(ratelimit)
 app.use(compression())
+app.use(morgan('common'))
 
 routes(app)
 
