@@ -6,10 +6,9 @@ import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import passport from 'passport'
 import cookieSession from 'cookie-session'
-
-import './database/mongodb'
 import ratelimit from './middleware/ratelimit'
 import routes from './routes'
+import './database/mongodb'
 import './services/passport'
 
 dotenv.config({ path: '../.env' })
@@ -29,7 +28,10 @@ app.use(compression())
 app.use(morgan('common'))
 app.use(cookieSession({
   name: 'session',
-  keys: [process.env.COOKIE_SESSION_SECRET_KEY1, process.env.COOKIE_SESSION_SECRET_KEY2],
+  keys: [
+    process.env.COOKIE_SESSION_SECRET_KEY1,
+    process.env.COOKIE_SESSION_SECRET_KEY2
+  ],
   maxAge: process.env.COOKIE_SESSION_MAX_AGE
 }))
 app.use(bodyParser.json({ extended: false }))

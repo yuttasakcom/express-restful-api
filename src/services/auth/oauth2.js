@@ -5,22 +5,12 @@ import crypto from 'crypto'
 import Users from '../../models/users'
 import AccessTokens from '../../models/access_tokens'
 import RefreshTokens from '../../models/refresh_tokens'
-import Clients from '../../models/clients'
 
 const server = oauth2orize.createServer()
 
 const errFn = (cb, err) => {
   if (err) return cb(err)
 }
-
-server.serializeClient((client, done) => done(null, client.id))
-
-server.deserializeClient((id, done) => {
-  Clients.findById(id, (error, client) => {
-    if (error) return done(error)
-    return done(null, client)
-  })
-})
 
 const generateTokens = (data, done) => {
   const errorHandler = errFn.bind(undefined, done)
