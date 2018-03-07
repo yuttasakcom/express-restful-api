@@ -41,8 +41,8 @@ const generateTokens = (data, done) => {
   })
 }
 
-server.exchange(oauth2orize.exchange.password(function (client, username, password, scope, done) {
-  Users.findOne({ username: username }, function (err, user) {
+server.exchange(oauth2orize.exchange.password((client, username, password, scope, done) => {
+  Users.findOne({ username: username }, (err, user) => {
     if (err) return done(err)
 
     if (!user || !user.checkPassword(password)) return done(null, false)

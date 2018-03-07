@@ -8,7 +8,8 @@ const router = Router()
 router.post('/oauth/token', oauth2.token)
 
 // user
-router.get('/user/me', user.info)
+router.post('/user/signup', user.signup, (req, res) => res.json(req.user))
+router.get('/user/me', user.me)
 
 router.get('/', (req, res) => {
   res.end('express restful api')
