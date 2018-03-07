@@ -7,8 +7,8 @@ const router = Router()
 // OAuth2
 router.post('/oauth/token', oauth2.token)
 
-// user
-router.post('/user/signup', user.signup, (req, res) => res.json(req.user))
+// User
+router.post('/user/signup', user.signup, (req, res) => res.json({message: 'success'}))
 router.get('/user/me', user.me)
 
 router.get('/', (req, res) => {

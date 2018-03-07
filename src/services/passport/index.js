@@ -17,22 +17,24 @@ passport.use('local-signup', new LocalStrategy({
   session: false
 },
 (req, email, password, done) => {
-  Users.findOne({ 'email': email }, function (err, user) {
-    if (err) return done(err)
+  process.nextTick(() =>
+    Users.findOne({ 'email': email }, (err, user) => {
+      if (err) return done(err)
 
-    if (user) {
-      return done({status: 422, message: 'That email is already taken.'})
-    } else {
-      const newUser = new Users()
-      newUser.email = email
-      newUser.password = newUser.generateHash(password)
-      newUser.save(function (err) {
-        if (err) return done(err)
+      if (user) {
+        return done({status: 422, message: 'That email is already taken.'})
+      } else {
+        const newUser = new Users()
+        newUser.email = email
+        newUser.password = newUser.generateHash(password)
+        newUser.save(err => {
+          if (err) return done(err)
 
-        return done(null, newUser)
-      })
-    }
-  })
+          return done(null, newUser)
+        })
+      }
+    })
+  )
 }))
 
 passport.use(new ClientPasswordStrategy(
