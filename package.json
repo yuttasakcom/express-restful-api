@@ -1,7 +1,13 @@
 {
   "name": "express-restful-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "express restful api",
+  "main": "src/server.js",
+  "keywords": [
+    "express",
+    "restful api",
+    "express restful api"
+  ],
   "repository": "git@github.com:yuttasakcom/express-restful-api.git",
   "author": "YoProgrammer <yuttasakcom@gmail.com>",
   "license": "MIT",

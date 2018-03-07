@@ -20,6 +20,7 @@
 ```bash
 $ git clone git@github.com:yuttasakcom/express-restful-api.git && cd express-restful-api
 $ yarn install
+$ cp .env.example .env
 
 $ yarn dev # for dev
 $ yarn test # for test
