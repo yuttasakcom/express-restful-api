@@ -20,6 +20,7 @@ const app = express()
 app.enable('trust proxy')
 app.disable('x-powered-by')
 
+app.set('trust proxy', 1)
 app.set('host', process.env.HOST || '127.0.0.1')
 app.set('port', process.env.PORT || '3000')
 
@@ -29,7 +30,7 @@ app.use(compression())
 app.use(morgan('common'))
 app.use(cookieSession({
   name: 'session',
-  keys: ['key1', 'key2'],
+  keys: [process.env.COOKIE_SESSION_SECRET_KEY1, process.env.COOKIE_SESSION_SECRET_KEY2],
   maxAge: process.env.COOKIE_SESSION_MAX_AGE
 }))
 app.use(bodyParser.json({ extended: false }))
