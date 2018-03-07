@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose'
+import mongoose from 'mongoose'
 
-const refreshTokensSchema = new Schema({
+const RefreshTokens = new mongoose.Schema({
   userId: {
     type: String,
     required: true
@@ -20,4 +20,4 @@ const refreshTokensSchema = new Schema({
   }
 })
 
-export default model('refresh_tokens', refreshTokensSchema)
+export default mongoose.model('refresh_tokens', RefreshTokens)

@@ -1,23 +1,20 @@
-const clients = [
-  { id: '1', name: 'Samplr', clientId: 'abc123', clientSecret: 'ssh-secret', isTrusted: false },
-  { id: '2', name: 'Samplr2', clientId: 'xyz123', clientSecret: 'ssh-password', isTrusted: true }
-]
+import mongoose from 'mongoose'
 
-const findById = (id, done) => {
-  for (let i = 0, len = clients.length; i < len; i++) {
-    if (clients[i].id === id) return done(null, clients[i])
+const Client = new mongoose.Schema({
+  name: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  clientId: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  clientSecret: {
+    type: String,
+    required: true
   }
-  return done(new Error('Client Not Found'))
-}
+})
 
-const findByClientId = (clientId, done) => {
-  for (let i = 0, len = clients.length; i < len; i++) {
-    if (clients[i].clientId === clientId) return done(null, clients[i])
-  }
-  return done(new Error('Client Not Found'))
-}
-
-export default {
-  findById,
-  findByClientId
-}
+export default mongoose.model('clients', Client)

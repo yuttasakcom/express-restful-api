@@ -7,7 +7,7 @@ const router = Router()
 // OAuth2
 router.post('/oauth/token', oauth2.token)
 
-// Users
+// user
 router.get('/user/me', user.info)
 
 router.get('/', (req, res) => {

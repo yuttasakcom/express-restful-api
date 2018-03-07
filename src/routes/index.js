@@ -1,6 +1,10 @@
 import api from './api'
 
 export default app => {
+  app.get('/login', (req, res) => {
+    res.json({ msg: 'login' })
+  })
+
   app.use('/api', api)
 
   app.use((req, res, next) => {

@@ -1,24 +1,26 @@
-const tokens = {}
+import mongoose from 'mongoose'
 
-const find = (key, done) => {
-  if (tokens[key]) return done(null, tokens[key])
-  return done(new Error('Token Not Found'))
-}
+const AccessTokens = new mongoose.Schema({
+  userId: {
+    type: String,
+    required: true
+  },
 
-const findByUserIdAndClientId = (userId, clientId, done) => {
-  for (const token in tokens) {
-    if (tokens[token].userId === userId && tokens[token].clientId === clientId) return done(null, token)
+  clientId: {
+    type: String,
+    required: true
+  },
+
+  token: {
+    type: String,
+    unique: true,
+    required: true
+  },
+
+  created_at: {
+    type: Date,
+    default: Date.now
   }
-  return done(new Error('Token Not Found'), null)
-}
+})
 
-const save = (token, userId, clientId, done) => {
-  tokens[token] = { userId, clientId }
-  done()
-}
-
-export default {
-  find,
-  findByUserIdAndClientId: findByUserIdAndClientId,
-  save
-}
+export default mongoose.model('access_tokens', AccessTokens)
