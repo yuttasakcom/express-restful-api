@@ -30,7 +30,7 @@ app.use(morgan('common'))
 app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2'],
-  maxAge: 36000
+  maxAge: process.env.COOKIE_SESSION_MAX_AGE
 }))
 app.use(bodyParser.json({ extended: false }))
 app.use(bodyParser.urlencoded({ extended: false }))
