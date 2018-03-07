@@ -4,10 +4,10 @@ import request from 'supertest'
 import server from '../src/server'
 
 describe('routes: /api', () => {
-  it('should return Api response', done => {
+  it('should return express restful api', done => {
     request(server)
       .get('/api')
-      .expect('Api')
+      .expect('express restful api')
       .end(done)
   })
 })

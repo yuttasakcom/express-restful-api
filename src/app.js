@@ -4,7 +4,6 @@ import morgan from 'morgan'
 import compression from 'compression'
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
-import errorHandler from 'errorhandler'
 import passport from 'passport'
 import cookieSession from 'cookie-session'
 
@@ -35,7 +34,6 @@ app.use(cookieSession({
 }))
 app.use(bodyParser.json({ extended: false }))
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(errorHandler())
 app.use(passport.initialize())
 app.use(passport.session())
 
