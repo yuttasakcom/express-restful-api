@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 mongoose.Promise = global.Promise
 
 const mongodbHOST = process.env.MONGODB_HOST || 'localhost'
