@@ -5,7 +5,10 @@ import webpackNodeExternals from 'webpack-node-externals'
 const resolve = dir => path.resolve(__dirname, dir)
 
 const config = {
-  entry: resolve('src/server.js'),
+  entry: [
+    'babel-polyfill',
+    './src/server.js'
+  ],
   output: {
     path: resolve('build'),
     filename: 'bundle.js'

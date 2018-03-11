@@ -22,6 +22,9 @@ $ git clone git@github.com:yuttasakcom/express-restful-api.git && cd express-res
 $ yarn install
 $ cp .env.example .env
 
+# Required MongoDB & Redis
+$ docker-compose up -d mongodb redis
+
 $ yarn dev # for dev
 $ yarn test # for test
 $ yarn start # for production
